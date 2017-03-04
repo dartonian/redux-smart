@@ -18,29 +18,40 @@ export default class Contacts extends Component {
 	render() {
 
 		const {
-			videos
+			videos,
+            video: currentVideo,
+            selectVideo,
+            remove
 		} = this.props;
 
         return (
 			<div className="section">
 				<div className="section__content">
+					<h1 onClick={this.change}>Click me change</h1>
 					<ul>
 						{
 
                             videos && videos.map((video,i)=>{
                                 return (
-									<li key={i}>
-										<h4>Серия № {i}</h4>
-										<p>{video}</p>
-										<video width="100%" controls>
-											<source src={`/videos/${video}`} type="video/mp4" />
-										</video>
+									<li key={i} onClick={e => {selectVideo(video)}}>
+										<h4>{video} | Серия № {i}</h4>
 									</li>
                                 );
                             })
 						}
 					
 					</ul>
+					<div className="cinema">
+
+						{
+							(currentVideo && !remove) && (
+                            	<video width="100%" controls>
+									<source src={`/videos/${currentVideo}`} type="video/mp4" />
+								</video>
+							)
+						}
+
+					</div>
 				</div>
 			</div>
 		);

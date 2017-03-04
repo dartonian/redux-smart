@@ -11,6 +11,28 @@ class MainService {
         return instance;
     }
 
+    resetVideo() {
+      return {
+          type: enums.RESET_VIDEO
+      }
+    };
+
+    playVideo (video) {
+        return {
+            type: enums.PLAY_VIDEO,
+            video
+        };
+    };
+
+    selectVideo =(video)=> {
+        return dispatch => {
+            dispatch(this.resetVideo());
+            setTimeout(()=>{
+                dispatch(this.playVideo(video));
+            },1);
+        };
+    };
+
     requestVideos() {
         return {
             type: enums.REQUEST_VIDEOS

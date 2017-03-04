@@ -17568,10 +17568,13 @@ Object.defineProperty(exports, "__esModule", {
 var enums = {
     initialState: {
         posts: null,
+        video: '',
         waiting: false
     },
     REQUEST_VIDEOS: 'REQUEST_VIDEOS',
-    LOAD_VIDEOS: 'LOAD_VIDEOS'
+    LOAD_VIDEOS: 'LOAD_VIDEOS',
+    PLAY_VIDEO: 'PLAY_VIDEO',
+    RESET_VIDEO: 'RESET_VIDEO'
 
 };
 
@@ -37840,11 +37843,14 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var MainCtrl = (0, _reactRedux.connect)(function (state) {
     return {
         waiting: state.mainReducer.waiting,
-        videos: state.mainReducer.videos
+        videos: state.mainReducer.videos,
+        video: state.mainReducer.video,
+        remove: state.mainReducer.remove
     };
 }, function (dispatch) {
     return (0, _redux.bindActionCreators)({
-        getVideos: _Main4.default.fetchVideos
+        getVideos: _Main4.default.fetchVideos,
+        selectVideo: _Main4.default.selectVideo
     }, dispatch);
 })(_Main2.default);
 
@@ -37900,7 +37906,11 @@ var Contacts = (_temp = _class = function (_Component) {
 	}, {
 		key: "render",
 		value: function render() {
-			var videos = this.props.videos;
+			var _props = this.props,
+			    videos = _props.videos,
+			    currentVideo = _props.video,
+			    selectVideo = _props.selectVideo,
+			    remove = _props.remove;
 
 
 			return _react2.default.createElement(
@@ -37910,30 +37920,37 @@ var Contacts = (_temp = _class = function (_Component) {
 					"div",
 					{ className: "section__content" },
 					_react2.default.createElement(
+						"h1",
+						{ onClick: this.change },
+						"Click me change"
+					),
+					_react2.default.createElement(
 						"ul",
 						null,
 						videos && videos.map(function (video, i) {
 							return _react2.default.createElement(
 								"li",
-								{ key: i },
+								{ key: i, onClick: function onClick(e) {
+										selectVideo(video);
+									} },
 								_react2.default.createElement(
 									"h4",
 									null,
-									"\u0421\u0435\u0440\u0438\u044F \u2116 ",
+									video,
+									" | \u0421\u0435\u0440\u0438\u044F \u2116 ",
 									i
-								),
-								_react2.default.createElement(
-									"p",
-									null,
-									video
-								),
-								_react2.default.createElement(
-									"video",
-									{ width: "100%", controls: true },
-									_react2.default.createElement("source", { src: "/videos/" + video, type: "video/mp4" })
 								)
 							);
 						})
+					),
+					_react2.default.createElement(
+						"div",
+						{ className: "cinema" },
+						currentVideo && !remove && _react2.default.createElement(
+							"video",
+							{ width: "100%", controls: true },
+							_react2.default.createElement("source", { src: "/videos/" + currentVideo, type: "video/mp4" })
+						)
 					)
 				)
 			);
@@ -37955,6 +37972,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 var _Main = __webpack_require__(195);
 
 var _Main2 = _interopRequireDefault(_Main);
@@ -37967,6 +37986,19 @@ function mainReducer() {
 
 
     switch (action.type) {
+
+        case _Main2.default.PLAY_VIDEO:
+            return _extends({}, state, {
+                video: action.video,
+                remove: false
+            });
+
+        case _Main2.default.RESET_VIDEO:
+            console.log('reset');
+            return _extends({}, state, {
+                remove: true
+            });
+
         case _Main2.default.REQUEST_VIDEOS:
             return Object.assign({}, state, {
                 waiting: true
@@ -38044,6 +38076,15 @@ var MainService = function () {
 
         _classCallCheck(this, MainService);
 
+        this.selectVideo = function (video) {
+            return function (dispatch) {
+                dispatch(_this.resetVideo());
+                setTimeout(function () {
+                    dispatch(_this.playVideo(video));
+                }, 1);
+            };
+        };
+
         this.fetchVideos = function () {
             return function (dispatch) {
                 dispatch(_this.requestVideos());
@@ -38063,6 +38104,21 @@ var MainService = function () {
     }
 
     _createClass(MainService, [{
+        key: 'resetVideo',
+        value: function resetVideo() {
+            return {
+                type: _Main2.default.RESET_VIDEO
+            };
+        }
+    }, {
+        key: 'playVideo',
+        value: function playVideo(video) {
+            return {
+                type: _Main2.default.PLAY_VIDEO,
+                video: video
+            };
+        }
+    }, {
         key: 'requestVideos',
         value: function requestVideos() {
             return {
@@ -38157,7 +38213,7 @@ var Header = function Header() {
                 _react2.default.createElement(
                     _reactRouter.Link,
                     { to: '/', className: 'link' },
-                    'Company'
+                    'Boss TV'
                 )
             )
         )
