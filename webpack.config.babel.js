@@ -10,7 +10,8 @@ const loaders = [
     {
         loader: 'css-loader',
         options: {
-          modules: true
+            //modules: true,
+            sourceMap: true
         }
     },
     {
@@ -49,9 +50,10 @@ export default {
             {
                 test: /\.js$/,
                 use:[{
-            		
+
             		loader: 'babel-loader'
-                }]
+                }],
+
                 
             },
 
@@ -103,7 +105,7 @@ export default {
     devServer: {
         contentBase: path.join(__dirname, '/src'),
         hot: true,
-        port: 4000,
+        port: 3000,
         historyApiFallback: true
     }
 };

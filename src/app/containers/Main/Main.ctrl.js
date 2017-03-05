@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Main from './Main';
-
 import mainService from './services/Main.service';
 
 const MainCtrl = connect(
@@ -14,7 +13,8 @@ const MainCtrl = connect(
     }),
     dispatch => bindActionCreators({
         getVideos: mainService.fetchVideos,
-        selectVideo: mainService.selectVideo
+        reset: mainService.resetVideo,
+        play: mainService.playVideo
     }, dispatch)
 )(Main);
 

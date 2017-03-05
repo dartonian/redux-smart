@@ -11,6 +11,16 @@ class MainService {
         return instance;
     }
 
+    _get(theUrl, callback) {
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                callback(xmlHttp.responseText);
+        };
+        xmlHttp.open('GET', theUrl, true); // true for asynchronous
+        xmlHttp.send(null);
+    }
+
     resetVideo() {
       return {
           type: enums.RESET_VIDEO
@@ -24,25 +34,16 @@ class MainService {
         };
     };
 
-    selectVideo =(video)=> {
-        return dispatch => {
-            dispatch(this.resetVideo());
-            setTimeout(()=>{
-                dispatch(this.playVideo(video));
-            },1);
-        };
-    };
-
     requestVideos() {
         return {
             type: enums.REQUEST_VIDEOS
         };
     }
 
-    receiveVideos(json) {
+    receiveVideos(res) {
         return {
             type: enums.LOAD_VIDEOS,
-            videos: json
+            videos: res
         };
     }
 
@@ -50,9 +51,11 @@ class MainService {
     fetchVideos =()=> {
       return dispatch => {
         dispatch(this.requestVideos());
-        return fetch('/api/list')
-          .then(res => res.json())
-          .then(json => dispatch(this.receiveVideos(json)))
+        return this._get('/api/list',(res)=>{
+            dispatch(this.receiveVideos(JSON.parse(res)));
+        });
+          //.then(res => res.json())
+          //.then(json => dispatch(this.receiveVideos(json)))
       }
     }
 }

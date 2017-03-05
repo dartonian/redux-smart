@@ -4,7 +4,7 @@
   "description": "",
   "main": "webpack.config.js",
   "scripts": {
-    "start": "webpack-dev-server --inline --watch --hot",
+    "start": "webpack-dev-server --inline --watch --hot --module-bind css=style!css",
     "build": "webpack"
   },
   "author": "",

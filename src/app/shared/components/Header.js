@@ -7,7 +7,7 @@ const Header = () => {
         <div className="section header">
             <div className="section__content">
                 <div className="header__logo">
-                    <Link to="/" className="link">Boss TV</Link>
+                    {/*<Link to="/" className="link">Boss TV</Link>*/}
                 </div>
                 {/*<p className="header__sections">*/}
                     {/*<Link to="/about" className="link">О компании</Link> <Link to="/contacts" className="link">Контакты</Link>*/}

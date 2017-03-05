@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-//import Slider from 'material-ui/Slider';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class Contacts extends Component {
 	static propTypes = {
@@ -12,40 +12,57 @@ export default class Contacts extends Component {
             getVideos
         } = this.props;
 
-        getVideos();
+        //getVideos();
 	}
+
+	playVideo =(video)=> {
+		const {
+            reset,
+            play
+		} = this.props;
+		reset();
+		setTimeout(()=>{
+            play(video);
+		},1);
+
+	};
 
 	render() {
 
+		const videos = ["dc0.mp4","dc01.mp4","dc02.mp4","dc03.mp4","dc04.mp4","dc05.mp4","dc06.mp4","dc07.mp4","dc08.mp4","dc09.mp4","dc10.mp4","dc11.mp4","dc12.mp4","dc13.mp4"];
+
 		const {
-			videos,
+			//videos,
             video: currentVideo,
-            selectVideo,
             remove
 		} = this.props;
 
         return (
-			<div className="section">
+			<div className="section main">
 				<div className="section__content">
-					<h1 onClick={this.change}>Click me change</h1>
-					<ul>
-						{
+					<h1>Доктор кто (1 сезон)</h1>
+					<div>
+						<ul className="main__list">
+							{
 
-                            videos && videos.map((video,i)=>{
-                                return (
-									<li key={i} onClick={e => {selectVideo(video)}}>
-										<h4>{video} | Серия № {i}</h4>
-									</li>
-                                );
-                            })
-						}
+	                            videos && videos.map((video,i)=>{
+	                                return (
+										<li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
+											<RaisedButton label={`${video} | Серия № ${i}`} />
+										</li>
+	                                );
+	                            })
+							}
+						
+						</ul>
+					</div>
 					
-					</ul>
 					<div className="cinema">
 
 						{
 							(currentVideo && !remove) && (
                             	<video width="100%" controls>
+									<source src={`/videos/${currentVideo}`} type="video/mp4" />
 									<source src={`/videos/${currentVideo}`} type="video/mp4" />
 								</video>
 							)
