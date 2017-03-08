@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Link } from 'react-router';
 
-export default class Films extends Component {
+export default class CurrentFilm extends Component {
     static propTypes = {
 
     };

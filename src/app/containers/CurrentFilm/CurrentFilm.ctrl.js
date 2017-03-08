@@ -1,16 +1,16 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
-import Films from './Films';
-import filmsService from './services/Films.service';
+import CurrentFilm from './CurrentFilm';
+import currentFilmService from './services/CurrentFilm.service';
 
-const FilmsCtrl = connect(
+const CurrentFilmCtrl = connect(
     state => ({
         video: state.filmsReducer.video,
     }),
     dispatch => bindActionCreators({
-        getVideos: filmsService.fetchVideos
+        getVideos: currentFilmService.fetchVideos
     }, dispatch)
-)(Films);
+)(CurrentFilm);
 
-export default FilmsCtrl;
+export default CurrentFilmCtrl;
