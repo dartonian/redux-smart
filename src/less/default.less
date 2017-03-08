@@ -11,16 +11,13 @@ body {
   background-color: #F5F7FA;
 }
 
-h1 {
-  font-size: 30px;
-  font-weight: 300;
-  margin-bottom: 30px;
-}
+a {
+  text-decoration: none;
 
-h2 {
-  font-size: 20px;
-  font-weight: 300;
-  margin-bottom: 20px;
+  &:hover,
+  &:visited {
+    text-decoration: none;
+  }
 }
 
 .section {
@@ -28,6 +25,144 @@ h2 {
   &__content {
     width: 1180px;
     margin: 0 auto;
+    padding: 0 10px;
+    box-sizing: border-box;
+  }
+}
+
+.text {
+  font-size: 16px;
+  line-height: 150%;
+  color: #333;
+
+  &_title {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-weight: 300;
+
+    &-h2 {
+      font-size: 20px;
+    }
+  }
+}
+
+.color {
+
+  &-white {
+    color: #fff;
+  }
+}
+
+.link {
+  text-decoration: none;
+  color: #56a9f7;
+  
+  &:hover,
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+.icon {
+  vertical-align: middle;
+}
+
+.hr {
+  height: 1px;
+  background-color: #e2e2e2;
+}
+
+.header {
+  background-color: #fff;
+  padding: 20px 0;
+  box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+
+  &__logo,
+  &__sections {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  &__logo {
+    width: 30%;
+    font-size: 40px;
+    font-weight: 300;
+
+    &-link {
+      text-decoration: none;
+      line-height: 100%;
+      color: #666;
+      //color: #7C4DFF;
+      //color: #00A6E8;
+      //color: #70B427;
+
+      &:hover,
+      &:visited {
+        text-decoration: none;
+        color: #666;
+        //color: #7C4DFF;
+        //color: #00A6E8;
+        //color: #70B427;
+      }
+    }
+  }
+
+  &__sections {
+    width: 70%;
+
+    &-link {
+      margin-right: 20px;
+      font-size: 16px;
+      font-weight: 300;
+      color: #2196F3;
+      text-decoration: none;
+      transition: all .3s ease;
+
+      &:visited {
+        color: #2196F3;
+        text-decoration: none;
+      }
+
+      &:hover {
+        color: #F87E1F;
+        text-decoration: none;
+      }
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 30px;
+  padding: 40px 0 40px;
+  background-color: #333;
+
+  &__copy,
+  &__sections {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__copy {
+    width: 20%;
+    color: #F5F7FA;
+  }
+
+  &__sections {
+    width: 80%;
+    color: #fff;
+
+    &-link {
+      margin-right: 20px;
+
+      &:last-of-type {
+        margin-left: 0;
+      }
+    }
   }
 }
 
@@ -53,15 +188,25 @@ h2 {
 }
 
 @media screen and (max-width: 777px) {
+
+  .header {
+
+    &__logo,
+    &__sections {
+      display: block;
+      width: 100%;
+    }
+
+    &__sections {
+      margin-top: 20px;
+    }
+  }
   
   .section {
 
     &__content {
       width: 100%;
       min-width: 300px;
-      padding: 0 10px;
-      box-sizing: border-box;
     }
   }
-
 }

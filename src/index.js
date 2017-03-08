@@ -25,6 +25,9 @@ const history = createHistory(store);
 
 /*--------------------------------*/
 
+// import injectTapEventPlugin from 'react-tap-event-plugin';
+// injectTapEventPlugin();
+
 render(
   <Provider store={store}>
     <Router history={history} routes={routes} />
