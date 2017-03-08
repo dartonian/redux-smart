@@ -30,7 +30,8 @@ export default class Main extends Component {
 
 	render() {
 
-		const videos = ["dc0.mp4","dc01.mp4","dc02.mp4","dc03.mp4","dc04.mp4","dc05.mp4","dc06.mp4","dc07.mp4","dc08.mp4","dc09.mp4","dc10.mp4","dc11.mp4","dc12.mp4","dc13.mp4"];
+		const serials = ["Doctor who","True Detective","Fargo","River","Games of Thrones"];
+        const films = ["Джанго","Man of steel","Dark Knight","Большой куш","Человек-паук"];
 
 		const {
 			//videos,
@@ -46,16 +47,17 @@ export default class Main extends Component {
 					
 					<div className="main__block">
 						<ul className="main__list">
-							{
 
-	                            videos && videos.map((video,i)=>{
-	                                return (
-										<li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" primary={true} label={`${video} | Серия № ${i}`} />
+                            {
+
+                                serials && serials.map((serial,i)=>{
+                                    return (
+										<li key={i} onClick={e => {this.playVideo(serial)}} className="main__list-item">
+											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial}`} />
 										</li>
-	                                );
-	                            })
-							}
+                                    );
+                                })
+                            }
 						
 						</ul>
 					</div>
@@ -66,32 +68,20 @@ export default class Main extends Component {
 
 					<div className="main__block">
 						<ul className="main__list">
-							{
 
-	                            videos && videos.map((video,i)=>{
-	                                return (
-										<li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" primary={true} label={`${video} | Серия № ${i}`} />
+                            {
+
+                                films && films.map((film,i)=>{
+                                    return (
+										<li key={i} onClick={e => {this.playVideo(film)}} className="main__list-item">
+											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film} | Серия № ${i}`} />
 										</li>
-	                                );
-	                            })
-							}
+                                    );
+                                })
+                            }
 
 						</ul>
 					</div>
-					
-					{/*<div className="cinema">*/}
-
-						{/*{*/}
-							{/*(currentVideo && !remove) && (*/}
-                            	{/*<video width="100%" controls>*/}
-									{/*<source src={`/videos/${currentVideo}`} type="video/mp4" />*/}
-									{/*<source src={`/videos/${currentVideo}`} type="video/mp4" />*/}
-								{/*</video>*/}
-							{/*)*/}
-						{/*}*/}
-
-					{/*</div>*/}
 				</div>
 			</div>
 		);
