@@ -19,7 +19,7 @@ export default class CurrentFilm extends Component {
             <div className="section">
                 <div className="section__content">
 
-                    <h1 className="text text_title text_center">Films</h1>
+                    <h1 className="text text_title text_center">Current Film</h1>
 
                 </div>
             </div>
