@@ -17,29 +17,51 @@ h1 {
   margin-bottom: 30px;
 }
 
+h2 {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 20px;
+}
+
 .section {
-  padding: 10px;
 
   &__content {
-    width: 100%;
+    width: 1180px;
     margin: 0 auto;
   }
 }
 
-.main {
+@media screen and (max-width: 1200px) {
 
-  &__list {
+  .section {
 
-    &-item {
-      display: inline-block;
-      vertical-align: top;
-      margin-right: 10px;
-      margin-bottom: 10px;
-      cursor: pointer;
-
-      &:last-of-type {
-        margin-right: 0;
-      }
+    &__content {
+      width: 940px;
     }
   }
+
+}
+
+@media screen and (max-width: 960px) {
+
+  .section {
+
+    &__content {
+      width: 760px;
+    }
+  }
+}
+
+@media screen and (max-width: 777px) {
+  
+  .section {
+
+    &__content {
+      width: 100%;
+      min-width: 300px;
+      padding: 0 10px;
+      box-sizing: border-box;
+    }
+  }
+
 }

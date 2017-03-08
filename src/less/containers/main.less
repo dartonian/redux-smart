@@ -1,0 +1,49 @@
+.main {
+
+  &__list {
+
+    &-item {
+      display: inline-block;
+      vertical-align: top;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      cursor: pointer;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+}
+
+@media screen and (max-width: 960px) {
+
+
+}
+
+@media screen and (max-width: 777px) {
+  .main {
+
+    &__list {
+
+      &-btn {
+        width: 100%;
+      }
+
+      &-item {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px 0;
+
+
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

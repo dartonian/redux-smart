@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import RaisedButton from 'material-ui/RaisedButton';
+import { Link } from 'react-router';
 
 export default class Contacts extends Component {
 	static propTypes = {
@@ -40,7 +41,8 @@ export default class Contacts extends Component {
         return (
 			<div className="section main">
 				<div className="section__content">
-					<h1>Доктор кто (1 сезон)</h1>
+					<h2><Link to="/serials" className="link">Сериалы</Link></h2>
+					
 					<div>
 						<ul className="main__list">
 							{
@@ -48,7 +50,25 @@ export default class Contacts extends Component {
 	                            videos && videos.map((video,i)=>{
 	                                return (
 										<li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
-											<RaisedButton label={`${video} | Серия № ${i}`} />
+											<RaisedButton className="main__list-btn" label={`${video} | Серия № ${i}`} />
+										</li>
+	                                );
+	                            })
+							}
+						
+						</ul>
+					</div>
+	
+					<h2><Link to="/films" className="link">Фильмы</Link></h2>
+
+					<div>
+						<ul className="main__list">
+							{
+
+	                            videos && videos.map((video,i)=>{
+	                                return (
+										<li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
+											<RaisedButton className="main__list-btn" label={`${video} | Серия № ${i}`} />
 										</li>
 	                                );
 	                            })

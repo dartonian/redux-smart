@@ -11,6 +11,8 @@ class MainService {
         return instance;
     }
 
+    /*remove and make fetch*/
+
     _get(theUrl, callback) {
         let xmlHttp = new XMLHttpRequest();
         xmlHttp.onreadystatechange = function() {
