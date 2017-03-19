@@ -34,8 +34,6 @@ export default class Main extends Component {
             serialsList
 		} = this.props;
 
-        console.log(this.props);
-
         return (
 			<div className="section main">
 				<div className="section__content">
@@ -70,9 +68,11 @@ export default class Main extends Component {
 
                                 filmsList && filmsList.map((film,i)=>{
                                     return (
-										<li key={i} onClick={e => {this.playVideo(film.url)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name} | Серия № ${i}`} />
-										</li>
+										<Link to={`/films/${film.name}`}>
+											<li key={i} className="main__list-item">
+												<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
+											</li>
+										</Link>
                                     );
                                 })
                             }

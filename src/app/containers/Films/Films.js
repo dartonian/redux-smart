@@ -36,9 +36,11 @@ export default class Films extends Component {
 
                                 filmsList && filmsList.map((film,i)=>{
                                     return (
-                                        <li key={i} onClick={e => {this.playVideo(film.url)}} className="main__list-item">
-                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
-                                        </li>
+                                        <Link to={`/films/${film.name}`}>
+                                            <li key={i} className="main__list-item">
+                                                <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
+                                            </li>
+                                        </Link>
                                     );
                                 })
                             }
