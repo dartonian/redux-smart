@@ -4,30 +4,10 @@ function mainReducer (state = enums.initialState, action) {
 
     switch(action.type) {
 
-        case enums.PLAY_VIDEO:
+        case enums.UPDATE:
             return {
-                ...state,
-                video: action.video,
-                remove: false
+                ...state
             };
-
-        case enums.RESET_VIDEO:
-            console.log('reset');
-            return {
-                ...state,
-                remove: true
-            };
-
-        case enums.REQUEST_VIDEOS:
-            return Object.assign({},state, {
-                waiting: true
-            });
-
-        case enums.LOAD_VIDEOS:
-            return Object.assign({},state, {
-                waiting: false,
-                videos: action.videos
-            });
 
         default:
             return state;

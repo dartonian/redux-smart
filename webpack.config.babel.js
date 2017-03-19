@@ -106,6 +106,6 @@ export default {
         contentBase: path.join(__dirname, '/src'),
         hot: true,
         port: 3000,
-        historyApiFallback: true
+        historyApiFallback: false
     }
 };

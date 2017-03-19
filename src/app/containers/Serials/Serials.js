@@ -8,13 +8,19 @@ export default class Serials extends Component {
     };
 
     componentDidMount(){
-        //const {} = this.props;
+        const {
+            getSerials,
+            serialsList
+        } = this.props;
+
+        if(!serialsList) {
+            getSerials();
+        }
     }
 
     render() {
 
-        //const {} = this.props;
-        const serials = ["Doctor who","True Detective","Fargo","River","Games of Thrones"];
+        const {serialsList} = this.props;
 
         return (
             <div className="section serials">
@@ -27,10 +33,10 @@ export default class Serials extends Component {
 
                             {
 
-                                serials && serials.map((serial,i)=>{
+                                serialsList && serialsList.map((serial,i)=>{
                                     return (
-                                        <li key={i} onClick={e => {this.playVideo(serial)}} className="main__list-item">
-                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial}`} />
+                                        <li key={i} onClick={e => {this.playVideo(serial.url)}} className="main__list-item">
+                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
                                         </li>
                                     );
                                 })

@@ -3,18 +3,19 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import Main from './Main';
 import mainService from './services/Main.service';
+import filmsService from '../Films/services/Films.service';
+import serialsService from '../Serials/services/Serials.service';
 
 const MainCtrl = connect(
     state => ({
-        waiting: state.mainReducer.waiting,
-        videos: state.mainReducer.videos,
-        video: state.mainReducer.video,
-        remove: state.mainReducer.remove
+        filmsList: state.filmsReducer.filmsList,
+        serialsList: state.serialsReducer.serialsList,
+        waitingFilms: state.filmsReducer.waiting,
+        waitingSerials: state.serialsReducer.waiting
     }),
     dispatch => bindActionCreators({
-        getVideos: mainService.fetchVideos,
-        reset: mainService.resetVideo,
-        play: mainService.playVideo
+        getFilms: filmsService.fetchVideos,
+        getSerials: serialsService.fetchVideos
     }, dispatch)
 )(Main);
 

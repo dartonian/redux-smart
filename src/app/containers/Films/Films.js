@@ -8,13 +8,20 @@ export default class Films extends Component {
     };
 
     componentDidMount(){
-        //const {} = this.props;
+        const {
+            getFilms,
+            filmsList
+        } = this.props;
+
+        if(!filmsList.length) {
+            getFilms();
+        }
+
     }
 
     render() {
 
-        //const {} = this.props;
-        const films = ["Джанго","Man of steel","Dark Knight","Большой куш","Человек-паук"];
+        const {filmsList} = this.props;
 
         return (
             <div className="section">
@@ -27,10 +34,10 @@ export default class Films extends Component {
 
                             {
 
-                                films && films.map((film,i)=>{
+                                filmsList && filmsList.map((film,i)=>{
                                     return (
-                                        <li key={i} onClick={e => {this.playVideo(film)}} className="main__list-item">
-                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film}`} />
+                                        <li key={i} onClick={e => {this.playVideo(film.url)}} className="main__list-item">
+                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
                                         </li>
                                     );
                                 })

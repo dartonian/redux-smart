@@ -9,6 +9,17 @@ function serialsReducer (state = enums.initialState, action) {
                 ...state
             };
 
+        case enums.REQUEST_VIDEOS:
+            return Object.assign({},state, {
+                waiting: true
+            });
+
+        case enums.LOAD_VIDEOS:
+            return Object.assign({},state, {
+                waiting: false,
+                serialsList: action.serialsList
+            });
+
         default:
             return state;
     }

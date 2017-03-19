@@ -10,34 +10,31 @@ export default class Main extends Component {
 	componentDidMount(){
 
         const {
-            getVideos
+            getFilms,
+            getSerials,
+            filmsList,
+            serialsList
         } = this.props;
 
-        //getVideos();
+        if(!filmsList.length) {
+            getFilms();
+		}
+
+
+		if(!serialsList) {
+            getSerials();
+		}
+
 	}
-
-	playVideo =(video)=> {
-		const {
-            reset,
-            play
-		} = this.props;
-		reset();
-		setTimeout(()=>{
-            play(video);
-		},1);
-
-	};
 
 	render() {
 
-		const serials = ["Doctor who","True Detective","Fargo","River","Games of Thrones"];
-        const films = ["Джанго","Man of steel","Dark Knight","Большой куш","Человек-паук"];
-
 		const {
-			//videos,
-            video: currentVideo,
-            remove
+            filmsList,
+            serialsList
 		} = this.props;
+
+        console.log(this.props);
 
         return (
 			<div className="section main">
@@ -50,10 +47,10 @@ export default class Main extends Component {
 
                             {
 
-                                serials && serials.map((serial,i)=>{
+                                serialsList && serialsList.map((serial,i)=>{
                                     return (
-										<li key={i} onClick={e => {this.playVideo(serial)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial}`} />
+										<li key={i} onClick={e => {this.playVideo(serial.url)}} className="main__list-item">
+											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
 										</li>
                                     );
                                 })
@@ -71,10 +68,10 @@ export default class Main extends Component {
 
                             {
 
-                                films && films.map((film,i)=>{
+                                filmsList && filmsList.map((film,i)=>{
                                     return (
-										<li key={i} onClick={e => {this.playVideo(film)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film} | Серия № ${i}`} />
+										<li key={i} onClick={e => {this.playVideo(film.url)}} className="main__list-item">
+											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name} | Серия № ${i}`} />
 										</li>
                                     );
                                 })

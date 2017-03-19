@@ -6,10 +6,10 @@ import serialsService from './services/Serials.service';
 
 const SerialsCtrl = connect(
     state => ({
-        video: state.serialsReducer.video,
+        serialsList: state.serialsReducer.serialsList,
     }),
     dispatch => bindActionCreators({
-        getVideos: serialsService.fetchVideos
+        getSerials: serialsService.fetchVideos
     }, dispatch)
 )(Serials);
 

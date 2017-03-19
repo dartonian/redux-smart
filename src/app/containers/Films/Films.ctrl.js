@@ -6,10 +6,10 @@ import filmsService from './services/Films.service';
 
 const FilmsCtrl = connect(
     state => ({
-        video: state.filmsReducer.video,
+        filmsList: state.filmsReducer.filmsList,
     }),
     dispatch => bindActionCreators({
-        getVideos: filmsService.fetchVideos
+        getFilms: filmsService.fetchVideos
     }, dispatch)
 )(Films);
 
