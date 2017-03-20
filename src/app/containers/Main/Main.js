@@ -47,8 +47,10 @@ export default class Main extends Component {
 
                                 serialsList && serialsList.map((serial,i)=>{
                                     return (
-										<li key={i} onClick={e => {this.playVideo(serial.url)}} className="main__list-item">
-											<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
+										<li key={i} className="main__list-item">
+											<Link to={`/current-serial/${serial.title}`}>
+												<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
+											</Link>
 										</li>
                                     );
                                 })
@@ -68,11 +70,13 @@ export default class Main extends Component {
 
                                 filmsList && filmsList.map((film,i)=>{
                                     return (
-										<Link to={`/films/${film.name}`}>
-											<li key={i} className="main__list-item">
-												<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
-											</li>
-										</Link>
+
+										<li key={i} className="main__list-item">
+											<Link to={`/films/${film.title}`}>
+												<RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.title}`} />
+											</Link>
+										</li>
+
                                     );
                                 })
                             }

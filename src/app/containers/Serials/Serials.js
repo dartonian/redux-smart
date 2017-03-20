@@ -35,8 +35,10 @@ export default class Serials extends Component {
 
                                 serialsList && serialsList.map((serial,i)=>{
                                     return (
-                                        <li key={i} onClick={e => {this.playVideo(serial.url)}} className="main__list-item">
-                                            <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
+                                        <li key={i} className="main__list-item">
+                                            <Link to={`/serials/${serial.title}`}>
+                                                <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
+                                            </Link>
                                         </li>
                                     );
                                 })

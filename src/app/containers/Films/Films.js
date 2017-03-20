@@ -36,11 +36,12 @@ export default class Films extends Component {
 
                                 filmsList && filmsList.map((film,i)=>{
                                     return (
-                                        <Link to={`/films/${film.name}`}>
-                                            <li key={i} className="main__list-item">
-                                                <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.name}`} />
-                                            </li>
-                                        </Link>
+
+                                        <li key={i} className="main__list-item">
+                                            <Link to={`/films/${film.title}`}>
+                                                <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.title}`} />
+                                            </Link>
+                                        </li>
                                     );
                                 })
                             }
