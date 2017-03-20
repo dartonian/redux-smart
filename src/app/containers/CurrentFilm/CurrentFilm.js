@@ -7,28 +7,38 @@ export default class CurrentFilm extends Component {
 
     };
 
-    componentDidMount(){
-        //const {} = this.props;
+    componentWillMount(){
+        const {
+            params:{
+                filmName
+            },
+            getFilmInfo
+        } = this.props;
+
+        getFilmInfo(filmName);
     }
 
     render() {
 
-        //const {} = this.props;
-        const currentVideo = 'video.mp4';
-        const videoName = 'Джанго';
+        const {
+            film: {
+                title,
+                url
+            },
+        } = this.props;
 
         return (
             <div className="section">
                 <div className="section__content">
 
-                    <h1 className="text text_title">{videoName}</h1>
+                    <h1 className="text text_title">{title}</h1>
 
                     <div className="cinema">
 
                         {
-                            (currentVideo) && (
+                            url && (
                                 <video width="100%" controls>
-                                    <source src={`/videos/${currentVideo}`} type="video/mp4" />
+                                    <source src={`/videos/${url}`} type="video/mp4" />
                                 </video>
                             )
                         }

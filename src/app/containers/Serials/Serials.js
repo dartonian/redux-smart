@@ -36,7 +36,7 @@ export default class Serials extends Component {
                                 serialsList && serialsList.map((serial,i)=>{
                                     return (
                                         <li key={i} className="main__list-item">
-                                            <Link to={`/serials/${serial.title}`}>
+                                            <Link to={`/current-serial/${serial.title}`}>
                                                 <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${serial.title}`} />
                                             </Link>
                                         </li>

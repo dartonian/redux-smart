@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router';
 const currentFilmRoute = () => {
 
     return (
-        <Route path="/current-film(/)" component={CurrentFilm} />
+        <Route path="/films/current-film(/)(:filmName)(/)" component={CurrentFilm} />
     )
 };
 

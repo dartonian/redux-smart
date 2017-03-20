@@ -5,7 +5,7 @@ import { Route, IndexRoute } from 'react-router';
 const currentSerialRoute = () => {
 
     return (
-        <Route path="/current-serial(/)(:serialName)(/)" component={CurrentSerial} />
+        <Route path="/serials/current-serial(/)(:serialName)(/)" component={CurrentSerial} />
     )
 };
 
