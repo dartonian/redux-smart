@@ -21,14 +21,12 @@ export default class CurrentSerial extends Component {
 
     }
 
-
-
     render() {
 
         const {
             serial: {
                 title,
-                seasons,//array with title and series
+                seasons,
             },
             currentSeason,
             currentVideo

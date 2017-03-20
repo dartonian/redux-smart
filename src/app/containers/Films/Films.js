@@ -38,7 +38,7 @@ export default class Films extends Component {
                                     return (
 
                                         <li key={i} className="main__list-item">
-                                            <Link to={`/current-film/${film.title}`}>
+                                            <Link to={`/films/current-film/${film.title}`}>
                                                 <RaisedButton className="main__list-btn" labelColor="#fff" backgroundColor="#00BCD4" label={`${film.title}`} />
                                             </Link>
                                         </li>

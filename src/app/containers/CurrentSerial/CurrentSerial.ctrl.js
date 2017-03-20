@@ -6,10 +6,12 @@ import currentSerialService from './services/CurrentSerial.service';
 
 const CurrentSerialCtrl = connect(
     state => ({
-        video: state.currentSerialReducer.video,
+        serial: state.currentSerialReducer.serial,
+        currentSeason: state.currentSerialReducer.currentSeason,
+        currentVideo: state.currentSerialReducer.currentVideo,
     }),
     dispatch => bindActionCreators({
-        getVideos: currentSerialService.fetchVideos
+        getSerialInfo: currentSerialService.fetchVideos
     }, dispatch)
 )(CurrentSerial);
 
