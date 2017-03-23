@@ -1,7 +1,7 @@
 import enums from '../Films.enums';
 let instance = null;
 
-class FilmsService {
+export class FilmsService {
 
     constructor(){
         if(!instance){
@@ -17,6 +17,10 @@ class FilmsService {
             updates
         }
     };
+
+    log(){
+        console.log('success');
+    }
 
     _get(theUrl, callback) {
         let xmlHttp = new XMLHttpRequest();
@@ -37,7 +41,10 @@ class FilmsService {
     receiveVideos(res) {
         return {
             type: enums.LOAD_VIDEOS,
-            filmsList: res.films[0].items
+            filmsList: res.films.map(film => ({
+                title: film.title,
+                url: film.url
+            }))
         };
     }
 

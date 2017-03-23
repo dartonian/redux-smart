@@ -3,15 +3,18 @@ import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import CurrentSerial from './CurrentSerial';
 import currentSerialService from './services/CurrentSerial.service';
+import SerialsService from '../Serials/services/Serials.service';
 
 const CurrentSerialCtrl = connect(
     state => ({
-        serial: state.currentSerialReducer.serial,
+        serialsList: state.serialsReducer.serialsList,
+        currentSerial: state.currentSerialReducer.currentSerial,
         currentSeason: state.currentSerialReducer.currentSeason,
         currentVideo: state.currentSerialReducer.currentVideo,
     }),
     dispatch => bindActionCreators({
-        getSerialInfo: currentSerialService.fetchVideos
+        getSerialInfo: SerialsService.fetchVideos,
+        setCurrentSerial: currentSerialService.setCurrentSerial
     }, dispatch)
 )(CurrentSerial);
 

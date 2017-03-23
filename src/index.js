@@ -19,7 +19,7 @@ import Style from './less/styles.less';
 
 /*--------------------------------*/
 
-const store = configureStore();
+export const store = configureStore();
 
 const history = createHistory(store);
 

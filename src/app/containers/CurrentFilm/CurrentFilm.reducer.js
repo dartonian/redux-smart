@@ -9,16 +9,11 @@ function currentFilmReducer (state = enums.initialState, action) {
                 ...state
             };
 
-        case enums.REQUEST_VIDEOS:
-            return Object.assign({},state, {
-                waiting: true
-            });
-
-        case enums.LOAD_VIDEOS:
-            return Object.assign({},state, {
-                waiting: false,
-                film: action.film
-            });
+        case enums.GET_CURRENT_FILM:
+            return {
+                ...state,
+                currentFilm: action.currentFilm
+            };
 
         default:
             return state;

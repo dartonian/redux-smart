@@ -1,10 +1,12 @@
 const enums = {
     initialState : {
-
+        currentFilm: {
+            title: '',
+            url: ''
+        }
     },
     UPDATE: 'UPDATE@CURRENT_FILM',
-    REQUEST_VIDEOS: 'REQUEST_VIDEOS@CURRENT_FILM',
-    LOAD_VIDEOS: 'LOAD_VIDEOS@CURRENT_FILM'
+    GET_CURRENT_FILM: 'GET_CURRENT_FILM@CURRENT_FILM'
 };
 
 export default enums;

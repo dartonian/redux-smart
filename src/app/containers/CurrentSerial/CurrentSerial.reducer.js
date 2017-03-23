@@ -9,16 +9,11 @@ function currentSerialReducer (state = enums.initialState, action) {
                 ...state
             };
 
-        case enums.REQUEST_VIDEOS:
-            return Object.assign({},state, {
-                waiting: true
-            });
-
-        case enums.LOAD_VIDEOS:
-            return Object.assign({},state, {
-                waiting: false,
-                serial: action.serial
-            });
+        case enums.GET_CURRENT_SERIAL:
+            return {
+                ...state,
+                currentSerial: action.currentSerial
+            };
 
         default:
             return state;

@@ -21,10 +21,27 @@ export default class CurrentSerial extends Component {
 
     }
 
+    componentWillMount(){
+        const {
+            params:{
+                serialName
+            },
+            getSerials,
+            serialsList,
+            setCurrentSerial
+        } = this.props;
+
+        if(!serialsList.length) {
+            getSerials();
+        }
+
+        setCurrentSerial(serialName);
+    }
+
     render() {
 
         const {
-            serial: {
+            currentSerial: {
                 title,
                 seasons,
             },
@@ -32,6 +49,7 @@ export default class CurrentSerial extends Component {
             currentVideo
         } = this.props;
 
+        const videoUrl = seasons ? `/public/serials/${title}/${seasons[currentSeason].series[currentVideo]}` : '';
 
         return (
             <div className="section">
@@ -41,8 +59,8 @@ export default class CurrentSerial extends Component {
 
                     <div>
                         {
-                            seasons && seasons.map((season,i) => {
-                                <FlatButton key={i} label={season.title} primary={true} />
+                            seasons && seasons.map((season, i) => {
+                                return (<FlatButton key={i} label={season.season} primary={true}/>)
                             })
                         }
 
@@ -54,24 +72,24 @@ export default class CurrentSerial extends Component {
 
                     <br/>
 
-                    <div>
+                    <ul>
                         {
                             seasons && seasons[currentSeason].series.map((video,i)=>{
                                 return (
                                     <li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
-                                        <RaisedButton className="main__list-btn" primary={true} label={`${video} | Серия № ${i}`} />
+                                        <RaisedButton className="main__list-btn" primary={true} label={`Серия № ${i}`} />
                                     </li>
                                 );
                             })
                         }
-                    </div>
+                    </ul>
 
                     <div className="cinema">
 
                         {
-                            currentVideo && (
+                            seasons && (
                                 <video width="100%" controls>
-                                    <source src={`/videos/${currentVideo}`} type="video/mp4" />
+                                    <source src={videoUrl} type="video/mp4" />
                                 </video>
                             )
                         }

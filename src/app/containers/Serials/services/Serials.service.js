@@ -37,7 +37,11 @@ class SerialsService {
     receiveVideos(res) {
         return {
             type: enums.LOAD_VIDEOS,
-            serialsList: res.serials[0].items
+            serialsList: res.serials.map(serial => ({
+                title: serial.title,
+                url: serial.url,
+                seasons: serial.seasons
+            }))
         };
     }
 

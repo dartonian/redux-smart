@@ -12,20 +12,24 @@ export default class CurrentFilm extends Component {
             params:{
                 filmName
             },
-            getFilmInfo
+            getFilms,
+            filmsList,
+            setCurrentFilm
         } = this.props;
 
-        getFilmInfo(filmName);
+        if(!filmsList.length) {
+            getFilms();
+        }
+
+        setCurrentFilm(filmName);
     }
 
     render() {
 
-        const {
-            film: {
-                title,
-                url
-            },
-        } = this.props;
+        const {currentFilm: {
+            title,
+            url
+        }} = this.props;
 
         return (
             <div className="section">
@@ -38,7 +42,7 @@ export default class CurrentFilm extends Component {
                         {
                             url && (
                                 <video width="100%" controls>
-                                    <source src={`/videos/${url}`} type="video/mp4" />
+                                    <source src={url} type="video/mp4" />
                                 </video>
                             )
                         }

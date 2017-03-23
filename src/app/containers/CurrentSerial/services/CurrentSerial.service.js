@@ -1,4 +1,5 @@
 import enums from '../CurrentSerial.enums';
+import {store} from '../../../../index';
 let instance = null;
 
 class CurrentSerialService {
@@ -18,40 +19,17 @@ class CurrentSerialService {
         }
     };
 
-    _get(theUrl, callback) {
-        let xmlHttp = new XMLHttpRequest();
-        xmlHttp.onreadystatechange = function() {
-            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-                callback(xmlHttp.responseText);
-        };
-        xmlHttp.open('GET', theUrl, true); // true for asynchronous
-        xmlHttp.send(null);
-    }
+    setCurrentSerial (name) {
 
-    requestVideos() {
+        const serialList = store.getState().serialsReducer.serialsList;
+        const currentSerial = serialList.filter((serial) => serial.title == name)[0];
+
         return {
-            type: enums.REQUEST_VIDEOS
-        };
-    }
-
-    receiveVideos(res) {
-        return {
-            type: enums.LOAD_VIDEOS,
-            serial: res.serial
-        };
-    }
-
-
-    fetchVideos =(name)=> {
-        return dispatch => {
-            dispatch(this.requestVideos(name));
-            return this._get(`/api/serial${name}`,(res)=>{
-                dispatch(this.receiveVideos(JSON.parse(res)));
-            });
-            //.then(res => res.json())
-            //.then(json => dispatch(this.receiveVideos(json)))
+            type: enums.GET_CURRENT_SERIAL,
+            currentSerial
         }
-    }
+
+    };
 }
 
 const currentSerialService = new CurrentSerialService();
