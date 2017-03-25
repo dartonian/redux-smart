@@ -12,16 +12,37 @@ export default class CurrentFilm extends Component {
             params:{
                 filmName
             },
-            getFilms,
+            getFilmInfo,
             filmsList,
             setCurrentFilm
         } = this.props;
 
         if(!filmsList.length) {
-            getFilms();
+            getFilmInfo();
+        } else {
+            setCurrentFilm(filmName);
         }
 
-        setCurrentFilm(filmName);
+    }
+
+
+    componentWillReceiveProps(nextProps) {
+
+        const {filmsList} = nextProps;
+
+        const {
+            currentFilm: {
+                title
+            },
+            params:{
+                filmName
+            },
+            setCurrentFilm
+        } = this.props;
+
+        if(!title && filmsList.length) {
+            setCurrentFilm(filmName);
+        }
     }
 
     render() {
@@ -30,6 +51,7 @@ export default class CurrentFilm extends Component {
             title,
             url
         }} = this.props;
+
 
         return (
             <div className="section">

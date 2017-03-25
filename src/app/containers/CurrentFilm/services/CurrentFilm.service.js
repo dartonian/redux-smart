@@ -17,6 +17,7 @@ class CurrentFilmService {
         const filmsList = store.getState().filmsReducer.filmsList;
         const currentFilm = filmsList.filter((film) => film.title == name)[0];
 
+
         return {
             type: enums.GET_CURRENT_FILM,
             currentFilm

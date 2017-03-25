@@ -1,7 +1,8 @@
 const enums = {
     initialState : {
         currentSerial: {
-            title: ''
+            title: '',
+            seasons: []
         },
         currentSeason: 1,
         currentVideo: 1

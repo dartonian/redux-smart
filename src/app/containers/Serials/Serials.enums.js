@@ -1,6 +1,6 @@
 const enums = {
     initialState : {
-        serials: []
+        serialsList: []
     },
     UPDATE: 'UPDATE@SERIALS',
     REQUEST_VIDEOS: 'REQUEST_VIDEOS@SERIALS',

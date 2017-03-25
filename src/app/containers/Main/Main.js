@@ -21,7 +21,7 @@ export default class Main extends Component {
 		}
 
 
-		if(!serialsList) {
+		if(!serialsList.length) {
             getSerials();
 		}
 
@@ -45,7 +45,7 @@ export default class Main extends Component {
 
                             {
 
-                                serialsList && serialsList.map((serial,i)=>{
+                                serialsList.length && serialsList.map((serial,i)=>{
                                     return (
 										<li key={i} className="main__list-item">
 											<Link to={`/serials/current-serial/${serial.title}`}>
@@ -68,7 +68,7 @@ export default class Main extends Component {
 
                             {
 
-                                filmsList && filmsList.map((film,i)=>{
+                                filmsList.length && filmsList.map((film,i)=>{
                                     return (
 
 										<li key={i} className="main__list-item">

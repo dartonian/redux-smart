@@ -8,19 +8,6 @@ export default class CurrentSerial extends Component {
 
     };
 
-
-    componentWillMount(){
-        const {
-            params:{
-                serialName
-            },
-            getSerialInfo
-        } = this.props;
-
-        getSerialInfo(serialName);
-
-    }
-
     componentWillMount(){
         const {
             params:{
@@ -33,9 +20,28 @@ export default class CurrentSerial extends Component {
 
         if(!serialsList.length) {
             getSerials();
+        } else {
+            setCurrentSerial(serialName);
         }
+    }
 
-        setCurrentSerial(serialName);
+    componentWillReceiveProps(nextProps) {
+
+        const {serialsList} = nextProps;
+
+        const {
+            currentSerial: {
+                title
+            },
+            params:{
+                serialName
+            },
+            setCurrentSerial
+        } = this.props;
+
+        if(!title && serialsList.length) {
+            setCurrentSerial(serialName);
+        }
     }
 
     render() {
@@ -49,7 +55,7 @@ export default class CurrentSerial extends Component {
             currentVideo
         } = this.props;
 
-        const videoUrl = seasons ? `/public/serials/${title}/${seasons[currentSeason].series[currentVideo]}` : '';
+        const videoUrl = seasons.length ? `/public/content/serials/${title}/${seasons[currentSeason].season}/${seasons[currentSeason].series[currentVideo]}` : '';
 
         return (
             <div className="section">
@@ -59,7 +65,7 @@ export default class CurrentSerial extends Component {
 
                     <div>
                         {
-                            seasons && seasons.map((season, i) => {
+                            seasons.length && seasons.map((season, i) => {
                                 return (<FlatButton key={i} label={season.season} primary={true}/>)
                             })
                         }
@@ -74,7 +80,7 @@ export default class CurrentSerial extends Component {
 
                     <ul>
                         {
-                            seasons && seasons[currentSeason].series.map((video,i)=>{
+                            seasons.length && seasons[currentSeason].series.map((video,i)=>{
                                 return (
                                     <li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
                                         <RaisedButton className="main__list-btn" primary={true} label={`Серия № ${i}`} />
@@ -87,7 +93,7 @@ export default class CurrentSerial extends Component {
                     <div className="cinema">
 
                         {
-                            seasons && (
+                            seasons.length && (
                                 <video width="100%" controls>
                                     <source src={videoUrl} type="video/mp4" />
                                 </video>
