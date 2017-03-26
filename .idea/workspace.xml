@@ -1,21 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7c9ab6ed-c8ea-4296-a512-4527702b233a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/app.8d8839ba6d311aa1946c.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/app.8d8839ba6d311aa1946c.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/dist/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/CurrentFilm/CurrentFilm.js" afterPath="$PROJECT_DIR$/src/app/containers/CurrentFilm/CurrentFilm.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/CurrentFilm/services/CurrentFilm.service.js" afterPath="$PROJECT_DIR$/src/app/containers/CurrentFilm/services/CurrentFilm.service.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.ctrl.js" afterPath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.ctrl.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.enums.js" afterPath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.enums.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.js" afterPath="$PROJECT_DIR$/src/app/containers/CurrentSerial/CurrentSerial.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/Main/Main.js" afterPath="$PROJECT_DIR$/src/app/containers/Main/Main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/Serials/Serials.enums.js" afterPath="$PROJECT_DIR$/src/app/containers/Serials/Serials.enums.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app/containers/Serials/Serials.js" afterPath="$PROJECT_DIR$/src/app/containers/Serials/Serials.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/webpack.config.babel.js" afterPath="$PROJECT_DIR$/webpack.config.babel.js" />
-    </list>
+    <list default="true" id="7c9ab6ed-c8ea-4296-a512-4527702b233a" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -57,8 +43,8 @@
       <file leaf-file-name="Main.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/containers/Main/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+            <state relative-caret-position="237">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -418,12 +404,12 @@
       <workItem from="1490032734631" duration="7920000" />
       <workItem from="1490292345439" duration="8543000" />
       <workItem from="1490439726419" duration="1734000" />
-      <workItem from="1490468851368" duration="3649000" />
+      <workItem from="1490468851368" duration="4333000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78572000" />
+    <option name="totallyTimeSpent" value="79256000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
@@ -669,7 +655,7 @@
         <state relative-caret-position="284">
           <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding>
-            <element signature="e#0#43#0" expanded="true" />
+            <element signature="e#0#43#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -742,7 +728,7 @@
         <state relative-caret-position="85">
           <caret line="5" column="58" lean-forward="false" selection-start-line="5" selection-start-column="58" selection-end-line="5" selection-end-column="58" />
           <folding>
-            <element signature="e#0#41#0" expanded="true" />
+            <element signature="e#0#41#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -794,7 +780,7 @@
         <state relative-caret-position="255">
           <caret line="15" column="18" lean-forward="false" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
           <folding>
-            <element signature="e#0#40#0" expanded="true" />
+            <element signature="e#0#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,8 +845,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/containers/Main/Main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="58" column="29" lean-forward="true" selection-start-line="58" selection-start-column="29" selection-end-line="58" selection-end-column="29" />
+        <state relative-caret-position="237">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding />
         </state>
       </provider>
