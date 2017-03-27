@@ -6,7 +6,8 @@ function currentSerialReducer (state = enums.initialState, action) {
 
         case enums.UPDATE:
             return {
-                ...state
+                ...state,
+                ...action.updateList
             };
 
         case enums.GET_CURRENT_SERIAL:

@@ -18995,7 +18995,7 @@ function createHistory(store) {
 /* 226 */
 /***/ (function(module, exports) {
 
-module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Boss TV</title>\r\n\t<link href=\"//fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic\" rel=\"stylesheet\" type=\"text/css\" />\r\n\t<link href=\"//fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\r\n</head>\r\n<body>\r\n\t<div id=\"app\"></div>\r\n</body>\r\n</html>\r\n"
+module.exports = "<!DOCTYPE html>\r\n<html>\r\n<head>\r\n\t<title>Boss TV</title>\r\n\t<link href=\"//fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic\" rel=\"stylesheet\" type=\"text/css\" />\r\n\t<link href=\"//fonts.googleapis.com/icon?family=Material+Icons\" rel=\"stylesheet\" />\r\n\t<meta http-equiv=\"X-UA-Compatible\" content=\"IE=Edge,chrome=1\">\r\n\t<meta name=\"viewport\" content=\"user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width\">\r\n</head>\r\n<body>\r\n\t<div id=\"app\"></div>\r\n</body>\r\n</html>\r\n"
 
 /***/ }),
 /* 227 */

@@ -14,7 +14,8 @@ const CurrentSerialCtrl = connect(
     }),
     dispatch => bindActionCreators({
         getSerials: SerialsService.fetchVideos,
-        setCurrentSerial: currentSerialService.setCurrentSerial
+        setCurrentSerial: currentSerialService.setCurrentSerial,
+        update: currentSerialService.update
     }, dispatch)
 )(CurrentSerial);
 

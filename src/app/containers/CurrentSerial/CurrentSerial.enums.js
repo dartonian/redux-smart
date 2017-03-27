@@ -4,8 +4,8 @@ const enums = {
             title: '',
             seasons: []
         },
-        currentSeason: 1,
-        currentVideo: 1
+        currentSeason: 0,
+        currentVideo: 0
     },
     UPDATE: 'UPDATE@CURRENT_SERIAL',
     GET_CURRENT_SERIAL: 'GET_CURRENT_SERIAL@CURRENT_SERIAL'

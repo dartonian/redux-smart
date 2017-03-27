@@ -14,8 +14,8 @@ class CurrentSerialService {
 
     update(updates) {
         return {
-            update: enums.UPDATE,
-            updates
+            type: enums.UPDATE,
+            updateList: updates
         }
     };
 

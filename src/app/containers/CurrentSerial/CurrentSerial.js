@@ -44,6 +44,16 @@ export default class CurrentSerial extends Component {
         }
     }
 
+    changeVideo =(video)=> {
+        const {update} = this.props;
+        update({currentVideo:video});
+    };
+
+    changeSeason =(season)=> {
+        const {update} = this.props;
+        update({currentSeason:season});
+    };
+
     render() {
 
         const {
@@ -66,7 +76,7 @@ export default class CurrentSerial extends Component {
                     <div>
                         {
                             seasons.length && seasons.map((season, i) => {
-                                return (<FlatButton key={i} label={season.season} primary={true}/>)
+                                return (<FlatButton onClick={e => {this.changeSeason(i)}} key={i} label={season.season} primary={true}/>)
                             })
                         }
 
@@ -82,8 +92,8 @@ export default class CurrentSerial extends Component {
                         {
                             seasons.length && seasons[currentSeason].series.map((video,i)=>{
                                 return (
-                                    <li key={i} onClick={e => {this.playVideo(video)}} className="main__list-item">
-                                        <RaisedButton className="main__list-btn" primary={true} label={`Серия № ${i}`} />
+                                    <li key={i} onClick={e => {this.changeVideo(i)}} className="main__list-item">
+                                        <RaisedButton className="main__list-btn" primary={true} label={`Серия № ${i+1}`} />
                                     </li>
                                 );
                             })
@@ -94,9 +104,7 @@ export default class CurrentSerial extends Component {
 
                         {
                             seasons.length && (
-                                <video width="100%" controls>
-                                    <source src={videoUrl} type="video/mp4" />
-                                </video>
+                                <video width="100%" src={videoUrl} type="video/mp4" controls />
                             )
                         }
 
