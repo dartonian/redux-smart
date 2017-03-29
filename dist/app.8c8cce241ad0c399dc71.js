@@ -18810,8 +18810,8 @@ var enums = {
             title: '',
             seasons: []
         },
-        currentSeason: 1,
-        currentVideo: 1
+        currentSeason: 0,
+        currentVideo: 0
     },
     UPDATE: 'UPDATE@CURRENT_SERIAL',
     GET_CURRENT_SERIAL: 'GET_CURRENT_SERIAL@CURRENT_SERIAL'
@@ -41863,7 +41863,8 @@ var CurrentSerialCtrl = (0, _reactRedux.connect)(function (state) {
 }, function (dispatch) {
     return (0, _redux.bindActionCreators)({
         getSerials: _Serials2.default.fetchVideos,
-        setCurrentSerial: _CurrentSerial4.default.setCurrentSerial
+        setCurrentSerial: _CurrentSerial4.default.setCurrentSerial,
+        update: _CurrentSerial4.default.update
     }, dispatch);
 })(_CurrentSerial2.default);
 
@@ -41883,7 +41884,7 @@ exports.default = undefined;
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _class, _temp;
+var _class, _temp2;
 
 var _react = __webpack_require__(1);
 
@@ -41907,13 +41908,29 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-var CurrentSerial = (_temp = _class = function (_Component) {
+var CurrentSerial = (_temp2 = _class = function (_Component) {
     _inherits(CurrentSerial, _Component);
 
     function CurrentSerial() {
+        var _ref;
+
+        var _temp, _this, _ret;
+
         _classCallCheck(this, CurrentSerial);
 
-        return _possibleConstructorReturn(this, (CurrentSerial.__proto__ || Object.getPrototypeOf(CurrentSerial)).apply(this, arguments));
+        for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+        }
+
+        return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = CurrentSerial.__proto__ || Object.getPrototypeOf(CurrentSerial)).call.apply(_ref, [this].concat(args))), _this), _this.changeVideo = function (video) {
+            var update = _this.props.update;
+
+            update({ currentVideo: video });
+        }, _this.changeSeason = function (season) {
+            var update = _this.props.update;
+
+            update({ currentSeason: season });
+        }, _temp), _possibleConstructorReturn(_this, _ret);
     }
 
     _createClass(CurrentSerial, [{
@@ -41976,7 +41993,9 @@ var CurrentSerial = (_temp = _class = function (_Component) {
                         'div',
                         null,
                         seasons.length && seasons.map(function (season, i) {
-                            return _react2.default.createElement(_FlatButton2.default, { key: i, label: season.season, primary: true });
+                            return _react2.default.createElement(_FlatButton2.default, { onClick: function onClick(e) {
+                                    _this2.changeSeason(i);
+                                }, key: i, label: season.season, primary: true });
                         })
                     ),
                     _react2.default.createElement('br', null),
@@ -41989,20 +42008,16 @@ var CurrentSerial = (_temp = _class = function (_Component) {
                             return _react2.default.createElement(
                                 'li',
                                 { key: i, onClick: function onClick(e) {
-                                        _this2.playVideo(video);
+                                        _this2.changeVideo(i);
                                     }, className: 'main__list-item' },
-                                _react2.default.createElement(_RaisedButton2.default, { className: 'main__list-btn', primary: true, label: '\u0421\u0435\u0440\u0438\u044F \u2116 ' + i })
+                                _react2.default.createElement(_RaisedButton2.default, { className: 'main__list-btn', primary: true, label: '\u0421\u0435\u0440\u0438\u044F \u2116 ' + (i + 1) })
                             );
                         })
                     ),
                     _react2.default.createElement(
                         'div',
                         { className: 'cinema' },
-                        seasons.length && _react2.default.createElement(
-                            'video',
-                            { width: '100%', controls: true },
-                            _react2.default.createElement('source', { src: videoUrl, type: 'video/mp4' })
-                        )
+                        seasons.length && _react2.default.createElement('video', { width: '100%', src: videoUrl, type: 'video/mp4', controls: true })
                     )
                 )
             );
@@ -42010,7 +42025,7 @@ var CurrentSerial = (_temp = _class = function (_Component) {
     }]);
 
     return CurrentSerial;
-}(_react.Component), _class.propTypes = {}, _temp);
+}(_react.Component), _class.propTypes = {}, _temp2);
 exports.default = CurrentSerial;
 
 /***/ }),
@@ -42040,7 +42055,7 @@ function currentSerialReducer() {
     switch (action.type) {
 
         case _CurrentSerial2.default.UPDATE:
-            return _extends({}, state);
+            return _extends({}, state, action.updateList);
 
         case _CurrentSerial2.default.GET_CURRENT_SERIAL:
             return _extends({}, state, {
@@ -42124,8 +42139,8 @@ var CurrentSerialService = function () {
         key: 'update',
         value: function update(updates) {
             return {
-                update: _CurrentSerial2.default.UPDATE,
-                updates: updates
+                type: _CurrentSerial2.default.UPDATE,
+                updateList: updates
             };
         }
     }, {
