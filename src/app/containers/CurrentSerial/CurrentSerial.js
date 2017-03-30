@@ -93,7 +93,7 @@ export default class CurrentSerial extends Component {
                             seasons.length && seasons[currentSeason].series.map((video,i)=>{
                                 return (
                                     <li key={i} onClick={e => {this.changeVideo(i)}} className="main__list-item">
-                                        <RaisedButton className="main__list-btn" primary={true} label={`Серия № ${i+1}`} />
+                                        <RaisedButton className="main__list-btn" primary={true} label={video} />
                                     </li>
                                 );
                             })

@@ -42010,7 +42010,7 @@ var CurrentSerial = (_temp2 = _class = function (_Component) {
                                 { key: i, onClick: function onClick(e) {
                                         _this2.changeVideo(i);
                                     }, className: 'main__list-item' },
-                                _react2.default.createElement(_RaisedButton2.default, { className: 'main__list-btn', primary: true, label: '\u0421\u0435\u0440\u0438\u044F \u2116 ' + (i + 1) })
+                                _react2.default.createElement(_RaisedButton2.default, { className: 'main__list-btn', primary: true, label: video })
                             );
                         })
                     ),
